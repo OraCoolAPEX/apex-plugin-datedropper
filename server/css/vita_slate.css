@@ -1,0 +1,68 @@
+/*
+
+	INSTRUCTIONS ---------------------------------------------------------------------------------
+  
+  1. link this stylesheet in the head of your HTML
+  	 <link href="YOUR PATH/vita_slate.css" rel="stylesheet" type="text/css" />
+     
+  2. Set the file name as data-theme attribute on your input
+  	 <input data-theme="vita_slate" />
+     
+  3. That's it!
+  
+  When you run script the style will be automatically applied.
+
+*/
+div.datedropper.vita_slate {
+  border-radius: 8px;
+  width: 180px;
+}
+div.datedropper.vita_slate .picker {
+  border-radius: 8px;
+  box-shadow: 0 0 32px 0px rgba(0, 0, 0, 0.1);
+}
+div.datedropper.vita_slate .pick-l {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+div.datedropper.vita_slate:before,
+div.datedropper.vita_slate .pick-submit,
+div.datedropper.vita_slate .pick-lg-b .pick-sl:before,
+div.datedropper.vita_slate .pick-m,
+div.datedropper.vita_slate .pick-lg-h {
+  background-color: #505f6d;
+}
+div.datedropper.vita_slate .pick-y.pick-jump,
+div.datedropper.vita_slate .pick li span,
+div.datedropper.vita_slate .pick-lg-b .pick-wke,
+div.datedropper.vita_slate .pick-btn {
+  color: #505f6d;
+}
+div.datedropper.vita_slate .picker,
+div.datedropper.vita_slate .pick-l {
+  background-color: #FFF;
+}
+div.datedropper.vita_slate .picker,
+div.datedropper.vita_slate .pick-arw,
+div.datedropper.vita_slate .pick-l {
+  color: #4D4D4D;
+}
+div.datedropper.vita_slate .pick-m,
+div.datedropper.vita_slate .pick-m .pick-arw,
+div.datedropper.vita_slate .pick-lg-h,
+div.datedropper.vita_slate .pick-lg-b .pick-sl,
+div.datedropper.vita_slate .pick-submit {
+  color: #FFF;
+}
+div.datedropper.vita_slate.picker-tiny:before,
+div.datedropper.vita_slate.picker-tiny .pick-m {
+  background-color: #FFF;
+}
+div.datedropper.vita_slate.picker-tiny .pick-m,
+div.datedropper.vita_slate.picker-tiny .pick-m .pick-arw {
+  color: #4D4D4D;
+}
+div.datedropper.vita_slate.picker-lkd .pick-submit {
+  background-color: #FFF;
+  color: #4D4D4D;
+}

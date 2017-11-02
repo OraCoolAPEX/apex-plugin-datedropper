@@ -1,0 +1,68 @@
+/*
+
+	INSTRUCTIONS ---------------------------------------------------------------------------------
+  
+  1. link this stylesheet in the head of your HTML
+  	 <link href="YOUR PATH/vita_dark.css" rel="stylesheet" type="text/css" />
+     
+  2. Set the file name as data-theme attribute on your input
+  	 <input data-theme="vita_dark" />
+     
+  3. That's it!
+  
+  When you run script the style will be automatically applied.
+
+*/
+div.datedropper.vita_dark {
+  border-radius: 8px;
+  width: 180px;
+}
+div.datedropper.vita_dark .picker {
+  border-radius: 8px;
+  box-shadow: 0 0 32px 0px rgba(0, 0, 0, 0.1);
+}
+div.datedropper.vita_dark .pick-l {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+div.datedropper.vita_dark:before,
+div.datedropper.vita_dark .pick-submit,
+div.datedropper.vita_dark .pick-lg-b .pick-sl:before,
+div.datedropper.vita_dark .pick-m,
+div.datedropper.vita_dark .pick-lg-h {
+  background-color: #323336;
+}
+div.datedropper.vita_dark .pick-y.pick-jump,
+div.datedropper.vita_dark .pick li span,
+div.datedropper.vita_dark .pick-lg-b .pick-wke,
+div.datedropper.vita_dark .pick-btn {
+  color: #323336;
+}
+div.datedropper.vita_dark .picker,
+div.datedropper.vita_dark .pick-l {
+  background-color: #FFF;
+}
+div.datedropper.vita_dark .picker,
+div.datedropper.vita_dark .pick-arw,
+div.datedropper.vita_dark .pick-l {
+  color: #4D4D4D;
+}
+div.datedropper.vita_dark .pick-m,
+div.datedropper.vita_dark .pick-m .pick-arw,
+div.datedropper.vita_dark .pick-lg-h,
+div.datedropper.vita_dark .pick-lg-b .pick-sl,
+div.datedropper.vita_dark .pick-submit {
+  color: #FFF;
+}
+div.datedropper.vita_dark.picker-tiny:before,
+div.datedropper.vita_dark.picker-tiny .pick-m {
+  background-color: #FFF;
+}
+div.datedropper.vita_dark.picker-tiny .pick-m,
+div.datedropper.vita_dark.picker-tiny .pick-m .pick-arw {
+  color: #4D4D4D;
+}
+div.datedropper.vita_dark.picker-lkd .pick-submit {
+  background-color: #FFF;
+  color: #4D4D4D;
+}

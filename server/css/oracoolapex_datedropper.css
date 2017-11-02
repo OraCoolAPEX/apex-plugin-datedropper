@@ -1,0 +1,19 @@
+div.datedropper .picker ul.pick.pick-m li {
+  font-size: 32px;
+  line-height: 60px;
+}
+
+div.datedropper .picker ul.pick.pick-d li {
+  line-height: 80px;
+  font-size: 64px;
+}
+
+div.datedropper .picker ul.pick.pick-y li {
+  line-height: 60px;
+  font-size: 24px;
+}
+
+div.datedropper .picker ul.pick.pick-l li {
+  line-height: 60px;
+  font-size: 18px;
+}
