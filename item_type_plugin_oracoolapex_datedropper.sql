@@ -33,7 +33,7 @@ wwv_flow_api.create_plugin(
 ,p_name=>'ORACOOLAPEX.DATEDROPPER'
 ,p_display_name=>'Date Dropper'
 ,p_supported_ui_types=>'DESKTOP:JQM_SMARTPHONE'
-,p_supported_component_types=>'APEX_APPLICATION_PAGE_ITEMS:APEX_APPL_PAGE_IG_COLUMNS'
+,p_supported_component_types=>'APEX_APPLICATION_PAGE_ITEMS'
 ,p_javascript_file_urls=>'#PLUGIN_FILES#server/lib/Datedropper3/datedropper#MIN#.js'
 ,p_css_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '#PLUGIN_FILES#server/lib/Datedropper3/datedropper#MIN#.css',
