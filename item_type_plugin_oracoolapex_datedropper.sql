@@ -34,7 +34,9 @@ wwv_flow_api.create_plugin(
 ,p_display_name=>'Date Dropper'
 ,p_supported_ui_types=>'DESKTOP:JQM_SMARTPHONE'
 ,p_supported_component_types=>'APEX_APPLICATION_PAGE_ITEMS'
-,p_javascript_file_urls=>'#PLUGIN_FILES#server/lib/Datedropper3/datedropper#MIN#.js'
+,p_javascript_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'#PLUGIN_FILES#server/lib/Datedropper3/datedropper#MIN#.js',
+'#PLUGIN_FILES#server/js/apexdatedropper#MIN#.js'))
 ,p_css_file_urls=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '#PLUGIN_FILES#server/lib/Datedropper3/datedropper#MIN#.css',
 '#PLUGIN_FILES#server/css/oracoolapex_datedropper.css'))
@@ -152,7 +154,7 @@ wwv_flow_api.create_plugin(
 '',
 '    p_result.is_navigable := false;',
 '  else',
-'    l_html := ''<input type="text" id="'' || p_item.id || ''" '';',
+'    l_html := ''<input type="text" id="'' || p_item.name || ''" name="'' || p_item.name || ''" '';',
 '    ',
 '    if l_default_date   is not null then l_html := l_html || ''data-default-date="''   || l_default_date   || ''" ''; end if;',
 '    if l_disabled_days  is not null then l_html := l_html || ''data-disabled-days="''  || l_disabled_days  || ''" ''; end if;',
@@ -176,8 +178,10 @@ wwv_flow_api.create_plugin(
 '    sys.htp.p(l_html);',
 '',
 '    apex_javascript.add_onload_code (',
-'      p_code => ''$("#'' || p_item.id || ''").dateDropper();''',
-'    );',
+'      p_code => ''apexDateDropper.initDateDropper('' ||',
+'                   apex_javascript.add_value (',
+'                       p_value     => p_item.name,',
+'                       p_add_comma => false )      || '');'' );',
 '',
 '    p_result.is_navigable := true;',
 '  end if;',
@@ -190,9 +194,9 @@ wwv_flow_api.create_plugin(
 ,p_standard_attributes=>'VISIBLE:FORM_ELEMENT:SESSION_STATE:READONLY:SOURCE:ELEMENT:WIDTH:ELEMENT_OPTION:ICON'
 ,p_substitute_attributes=>true
 ,p_subscribe_plugin_settings=>true
-,p_version_identifier=>'1.0.0'
+,p_version_identifier=>'1.0.1'
 ,p_about_url=>'https://github.com/OraCoolAPEX/apex-plugin-datedropper'
-,p_files_version=>49
+,p_files_version=>51
 );
 wwv_flow_api.create_plugin_attribute(
  p_id=>wwv_flow_api.id(31250689421144703734)
@@ -620,6 +624,12 @@ wwv_flow_api.create_plugin_attribute(
 '<p>If this option is set to true, the picker will be displayed centered, with a dark overlay in background.</p>',
 '<p>Default: false</p>',
 '<p>Example: data-modal="true"</p>'))
+);
+wwv_flow_api.create_plugin_event(
+ p_id=>wwv_flow_api.id(37340905277796211230)
+,p_plugin_id=>wwv_flow_api.id(31245697109785470074)
+,p_name=>'apex-datedropper-change'
+,p_display_name=>'APEX Date Dropper - Change'
 );
 end;
 /
@@ -2152,6 +2162,49 @@ wwv_flow_api.create_plugin_file(
 ,p_plugin_id=>wwv_flow_api.id(31245697109785470074)
 ,p_file_name=>'server/lib/Datedropper3/src/datedropper.woff'
 ,p_mime_type=>'application/octet-stream'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_api.varchar2_to_blob(wwv_flow_api.g_varchar2_table)
+);
+end;
+/
+begin
+wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
+wwv_flow_api.g_varchar2_table(1) := '2F2F476C6F62616C204E616D6573706163650D0A76617220617065784461746544726F70706572203D207B0D0A2020696E69744461746544726F707065723A2066756E6374696F6E28704974656D49642C20704F7074696F6E732C20704C6F6767696E67';
+wwv_flow_api.g_varchar2_table(2) := '29207B0D0A202020202428272327202B20704974656D4964292E6461746544726F7070657228293B0D0A0D0A2020202076617220764461746544726F707065724964203D202428272327202B20704974656D4964292E646174612827696427293B0D0A20';
+wwv_flow_api.g_varchar2_table(3) := '2020200D0A202020207661722076557365724167656E74203D2066756E6374696F6E2829207B0D0A2020202020206966282F416E64726F69647C7765624F537C6950686F6E657C695061647C69506F647C426C61636B42657272797C49454D6F62696C65';
+wwv_flow_api.g_varchar2_table(4) := '7C4F70657261204D696E692F692E74657374286E6176696761746F722E757365724167656E7429290D0A202020202020202072657475726E20747275653B0D0A202020202020656C73650D0A202020202020202072657475726E2066616C73653B0D0A20';
+wwv_flow_api.g_varchar2_table(5) := '2020207D3B0D0A0D0A202020207661722076546F7563684576656E74203D2076557365724167656E742829203F2027746F756368737461727427203A20276D6F757365646F776E273B0D0A0D0A202020202428617065782E6750616765436F6E74657874';
+wwv_flow_api.g_varchar2_table(6) := '24292E6F6E2876546F7563684576656E742C20276469762327202B20764461746544726F707065724964202B20272E6461746564726F707065722E7069636B65722D666F637573202E7069636B2D7375626D6974272C2066756E6374696F6E2829207B0D';
+wwv_flow_api.g_varchar2_table(7) := '0A2020202020202428272327202B20704974656D4964292E747269676765722827617065782D6461746564726F707065722D6368616E676527293B0D0A202020207D293B0D0A20207D0D0A7D3B';
+null;
+end;
+/
+begin
+wwv_flow_api.create_plugin_file(
+ p_id=>wwv_flow_api.id(37340869810953983579)
+,p_plugin_id=>wwv_flow_api.id(31245697109785470074)
+,p_file_name=>'server/js/apexdatedropper.js'
+,p_mime_type=>'text/javascript'
+,p_file_charset=>'utf-8'
+,p_file_content=>wwv_flow_api.varchar2_to_blob(wwv_flow_api.g_varchar2_table)
+);
+end;
+/
+begin
+wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
+wwv_flow_api.g_varchar2_table(1) := '76617220617065784461746544726F707065723D7B696E69744461746544726F707065723A66756E6374696F6E28652C722C74297B24282223222B65292E6461746544726F7070657228293B76617220613D24282223222B65292E646174612822696422';
+wwv_flow_api.g_varchar2_table(2) := '292C693D66756E6374696F6E28297B72657475726E21212F416E64726F69647C7765624F537C6950686F6E657C695061647C69506F647C426C61636B42657272797C49454D6F62696C657C4F70657261204D696E692F692E74657374286E617669676174';
+wwv_flow_api.g_varchar2_table(3) := '6F722E757365724167656E74297D2C6F3D6928293F22746F7563687374617274223A226D6F757365646F776E223B2428617065782E6750616765436F6E7465787424292E6F6E286F2C2264697623222B612B222E6461746564726F707065722E7069636B';
+wwv_flow_api.g_varchar2_table(4) := '65722D666F637573202E7069636B2D7375626D6974222C66756E6374696F6E28297B24282223222B65292E747269676765722822617065782D6461746564726F707065722D6368616E676522297D297D7D3B';
+null;
+end;
+/
+begin
+wwv_flow_api.create_plugin_file(
+ p_id=>wwv_flow_api.id(37340870353082983957)
+,p_plugin_id=>wwv_flow_api.id(31245697109785470074)
+,p_file_name=>'server/js/apexdatedropper.min.js'
+,p_mime_type=>'text/javascript'
 ,p_file_charset=>'utf-8'
 ,p_file_content=>wwv_flow_api.varchar2_to_blob(wwv_flow_api.g_varchar2_table)
 );

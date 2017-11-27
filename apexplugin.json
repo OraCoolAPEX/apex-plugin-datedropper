@@ -1,6 +1,6 @@
 {
   "name" : "Date Dropper",
-  "version" : "1.0.0",
+  "version" : "1.0.1",
   "description" : "An Oracle APEX Item Plug-in based on the jQuery UI datepicker Datedropper.",
   "keywords" : ["datepicker","plugin"],
   "homepage" : "https://github.com/OraCoolAPEX/apex-plugin-datedropper",
@@ -27,7 +27,7 @@
         "internalName" : "ORACOOLAPEX.DATEDROPPER",
         "type": "item",
         "demo": "https://apex.oracle.com/pls/apex/f?p=OraCoolAPEX:8",
-        "previewImage" : "https://github.com/OraCoolAPEX/apex-plugin-datedropper/blob/master/preview.gif"
+        "previewImage" : "https://raw.githubusercontent.com/OraCoolAPEX/apex-plugin-datedropper/master/preview.gif"
       }
     }
   }

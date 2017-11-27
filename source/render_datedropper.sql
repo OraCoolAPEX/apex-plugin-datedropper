@@ -111,7 +111,7 @@ begin
 
     p_result.is_navigable := false;
   else
-    l_html := '<input type="text" id="' || p_item.id || '" ';
+    l_html := '<input type="text" id="' || p_item.name || '" name="' || p_item.name || '" ';
     
     if l_default_date   is not null then l_html := l_html || 'data-default-date="'   || l_default_date   || '" '; end if;
     if l_disabled_days  is not null then l_html := l_html || 'data-disabled-days="'  || l_disabled_days  || '" '; end if;
@@ -135,8 +135,10 @@ begin
     sys.htp.p(l_html);
 
     apex_javascript.add_onload_code (
-      p_code => '$("#' || p_item.id || '").dateDropper();'
-    );
+      p_code => 'apexDateDropper.initDateDropper(' ||
+                   apex_javascript.add_value (
+                       p_value     => p_item.name,
+                       p_add_comma => false )      || ');' );
 
     p_result.is_navigable := true;
   end if;
