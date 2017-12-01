@@ -4,6 +4,7 @@ procedure render_datedropper (
   p_param  in            apex_plugin.t_item_render_param,
   p_result in out nocopy apex_plugin.t_item_render_result )
 is
+  l_logging              boolean;
   l_default_date         varchar2(10);
   l_disabled_days        varchar2(4000);
   l_format               varchar2(6);
@@ -134,11 +135,87 @@ begin
 
     sys.htp.p(l_html);
 
+    --
+    --Logging
+    --
+    if apex_application.g_debug then
+      l_logging := true;
+    else
+      l_logging := false;
+    end if;
+
     apex_javascript.add_onload_code (
       p_code => 'apexDateDropper.initDateDropper(' ||
                    apex_javascript.add_value (
                        p_value     => p_item.name,
-                       p_add_comma => false )      || ');' );
+                       p_add_comma => true )      || '{' ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'defaultDate',
+                       p_value     => l_default_date,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'disabledDays',
+                       p_value     => l_disabled_days,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'format',
+                       p_value     => l_format,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'fx',
+                       p_value     => l_fx,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'fxMobile',
+                       p_value     => l_fx_mobile,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'initSet',
+                       p_value     => l_init_set,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'lang',
+                       p_value     => l_lang,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'largeMode',
+                       p_value     => l_large_mode,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'largeDefault',
+                       p_value     => l_large_default,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'lock',
+                       p_value     => l_lock,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'jump',
+                       p_value     => l_jump,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'maxYear',
+                       p_value     => l_max_year,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'minYear',
+                       p_value     => l_min_year,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'modal',
+                       p_value     => l_modal,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'theme',
+                       p_value     => l_theme,
+                       p_add_comma => true )       ||
+                   apex_javascript.add_attribute (
+                       p_name      => 'translateMode',
+                       p_value     => l_translate_mode,
+                       p_add_comma => false )      || '},' ||
+                   apex_javascript.add_value (
+                       p_value     => l_logging,
+                       p_add_comma => false ) || ');' );
 
     p_result.is_navigable := true;
   end if;
