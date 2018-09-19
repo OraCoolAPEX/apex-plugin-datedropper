@@ -1,3 +1,4 @@
+prompt --application/set_environment
 set define off verify off feedback off
 whenever sqlerror exit sql.sqlcode rollback
 --------------------------------------------------------------------------------
@@ -5,30 +6,25 @@ whenever sqlerror exit sql.sqlcode rollback
 -- ORACLE Application Express (APEX) export file
 --
 -- You should run the script connected to SQL*Plus as the Oracle user
--- APEX_050100 or as the owner (parsing schema) of the application.
+-- APEX_180100 or as the owner (parsing schema) of the application.
 --
 -- NOTE: Calls to apex_application_install override the defaults below.
 --
 --------------------------------------------------------------------------------
 begin
 wwv_flow_api.import_begin (
- p_version_yyyy_mm_dd=>'2016.08.24'
-,p_release=>'5.1.3.00.05'
+ p_version_yyyy_mm_dd=>'2018.04.04'
+,p_release=>'18.1.0.00.45'
 ,p_default_workspace_id=>14861999474993887539
-,p_default_application_id=>44444222
+,p_default_application_id=>42424242
 ,p_default_owner=>'ORACOOLAPEX'
 );
-end;
-/
-prompt --application/ui_types
-begin
-null;
 end;
 /
 prompt --application/shared_components/plugins/item_type/oracoolapex_datedropper
 begin
 wwv_flow_api.create_plugin(
- p_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107740286836233980565)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_name=>'ORACOOLAPEX.DATEDROPPER'
 ,p_display_name=>'Date Dropper'
@@ -155,7 +151,7 @@ wwv_flow_api.create_plugin(
 '',
 '    p_result.is_navigable := false;',
 '  else',
-'    l_html := ''<input type="text" id="'' || p_item.name || ''" name="'' || p_item.name || ''" '';',
+'    l_html := ''<input type="text" id="'' || p_item.name || ''" name="'' || p_item.name || ''" class="apex-item-text" '';',
 '    ',
 '    if l_default_date   is not null then l_html := l_html || ''data-default-date="''   || l_default_date   || ''" ''; end if;',
 '    if l_disabled_days  is not null then l_html := l_html || ''data-disabled-days="''  || l_disabled_days  || ''" ''; end if;',
@@ -276,8 +272,8 @@ wwv_flow_api.create_plugin(
 ,p_files_version=>88
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69494348234008561499)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107745279147593214225)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>1
 ,p_display_sequence=>10
@@ -304,8 +300,8 @@ wwv_flow_api.create_plugin_attribute(
 '</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69495060525399653403)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107745991438984306129)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>2
 ,p_display_sequence=>20
@@ -320,8 +316,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-fx="false"</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69495280255454665199)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107746211169039317925)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>3
 ,p_display_sequence=>30
@@ -335,8 +331,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Default: true</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69495474942800671849)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107746405856385324575)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>4
 ,p_display_sequence=>40
@@ -371,127 +367,127 @@ wwv_flow_api.create_plugin_attribute(
 '</p>'))
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69495479526028673794)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107746410439613326520)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>10
 ,p_display_value=>'Arabic'
 ,p_return_value=>'ar'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496288229950718207)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747219143535370933)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>20
 ,p_display_value=>'Dansk'
 ,p_return_value=>'da'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496289378865718866)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747220292450371592)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>30
 ,p_display_value=>'Deutsch'
 ,p_return_value=>'de'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496352659814705601)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747283573399358327)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>40
 ,p_display_value=>'Dutch'
 ,p_return_value=>'nl'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496955240474732965)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747886154059385691)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>50
 ,p_display_value=>'English'
 ,p_return_value=>'en'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496326255307703479)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747257168892356205)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>60
 ,p_display_value=>'Espanol'
 ,p_return_value=>'es'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496353572252706326)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747284485837359052)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>70
 ,p_display_value=>'Francais'
 ,p_return_value=>'fr'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496325910559702826)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747256824144355552)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>80
 ,p_display_value=>'Greek'
 ,p_return_value=>'gr'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496283966012716173)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747214879597368899)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>90
 ,p_display_value=>'Hungarian'
 ,p_return_value=>'hu'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496308884307701228)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747239797892353954)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>100
 ,p_display_value=>'Italian'
 ,p_return_value=>'it'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496387915865726837)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747318829450379563)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>110
 ,p_display_value=>'Korean'
 ,p_return_value=>'ko'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496362787673721114)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747293701258373840)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>120
 ,p_display_value=>'Polski'
 ,p_return_value=>'pl'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496364206436721929)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747295120021374655)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>130
 ,p_display_value=>'Portuguese'
 ,p_return_value=>'pt'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496366775508724006)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747297689093376732)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>140
 ,p_display_value=>'Russian'
 ,p_return_value=>'ru'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496365108752722589)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747296022337375315)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>150
 ,p_display_value=>'Slovenian'
 ,p_return_value=>'si'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496375797651724728)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747306711236377454)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>160
 ,p_display_value=>'Turkish'
 ,p_return_value=>'tr'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69496365786858723299)
-,p_plugin_attribute_id=>wwv_flow_api.id(69495474942800671849)
+ p_id=>wwv_flow_api.id(107747296700443376025)
+,p_plugin_attribute_id=>wwv_flow_api.id(107746405856385324575)
 ,p_display_sequence=>170
 ,p_display_value=>'Ukrainian'
 ,p_return_value=>'uk'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69507902921933688634)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107758833835518341360)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>5
 ,p_display_sequence=>50
@@ -506,36 +502,36 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-theme="my-style"</p>'))
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69507910611936692652)
-,p_plugin_attribute_id=>wwv_flow_api.id(69507902921933688634)
+ p_id=>wwv_flow_api.id(107758841525521345378)
+,p_plugin_attribute_id=>wwv_flow_api.id(107758833835518341360)
 ,p_display_sequence=>10
 ,p_display_value=>'Vita'
 ,p_return_value=>'vita'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69507924563903693659)
-,p_plugin_attribute_id=>wwv_flow_api.id(69507902921933688634)
+ p_id=>wwv_flow_api.id(107758855477488346385)
+,p_plugin_attribute_id=>wwv_flow_api.id(107758833835518341360)
 ,p_display_sequence=>20
 ,p_display_value=>'Vita-Dark'
 ,p_return_value=>'vita_dark'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69507941459704694783)
-,p_plugin_attribute_id=>wwv_flow_api.id(69507902921933688634)
+ p_id=>wwv_flow_api.id(107758872373289347509)
+,p_plugin_attribute_id=>wwv_flow_api.id(107758833835518341360)
 ,p_display_sequence=>30
 ,p_display_value=>'Vita-Red'
 ,p_return_value=>'vita_red'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(69507943498013696068)
-,p_plugin_attribute_id=>wwv_flow_api.id(69507902921933688634)
+ p_id=>wwv_flow_api.id(107758874411598348794)
+,p_plugin_attribute_id=>wwv_flow_api.id(107758833835518341360)
 ,p_display_sequence=>40
 ,p_display_value=>'Vita-Slate'
 ,p_return_value=>'vita_slate'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69508568513919715632)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107759499427504368358)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>6
 ,p_display_sequence=>60
@@ -550,8 +546,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-translate-mode="true"</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69492624671981501331)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107743555585566154057)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>1
 ,p_display_sequence=>10
@@ -564,8 +560,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Default: CURRENT DATE</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69493429713977554980)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107744360627562207706)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>2
 ,p_display_sequence=>20
@@ -579,8 +575,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Default: false</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69495314067899660087)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107746244981484312813)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>3
 ,p_display_sequence=>30
@@ -594,8 +590,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-init-set="false"</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69498101858138798729)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107749032771723451455)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>4
 ,p_display_sequence=>40
@@ -610,8 +606,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-large-mode="true"</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69498173501546797083)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107749104415131449809)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>5
 ,p_display_sequence=>50
@@ -626,8 +622,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-large-default="true"</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69507074928846598247)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107758005842431250973)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>6
 ,p_display_sequence=>60
@@ -641,8 +637,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-lock="from"</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69507177125874618002)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107758108039459270728)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>7
 ,p_display_sequence=>70
@@ -657,8 +653,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-jump="4"</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69507773961339652824)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107758704874924305550)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>8
 ,p_display_sequence=>80
@@ -672,8 +668,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-max-year="2030"</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69507800886779671447)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107758731800364324173)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>9
 ,p_display_sequence=>90
@@ -687,8 +683,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-min-year="1800"</p>'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(69507861653779677828)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(107758792567364330554)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>10
 ,p_display_sequence=>100
@@ -703,8 +699,8 @@ wwv_flow_api.create_plugin_attribute(
 '<p>Example: data-modal="true"</p>'))
 );
 wwv_flow_api.create_plugin_event(
- p_id=>wwv_flow_api.id(75584564090660068995)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(113835495004244721721)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_name=>'apex-datedropper-change'
 ,p_display_name=>'APEX Date Dropper - Change'
 );
@@ -721,8 +717,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248507599179419403)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499438512764072129)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/css/apexdatedropper.css'
 ,p_mime_type=>'text/css'
 ,p_file_charset=>'utf-8'
@@ -755,8 +751,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248507810121419404)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499438723706072130)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/css/vita.css'
 ,p_mime_type=>'text/css'
 ,p_file_charset=>'utf-8'
@@ -791,8 +787,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248508240245419405)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499439153830072131)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/css/vita_dark.css'
 ,p_mime_type=>'text/css'
 ,p_file_charset=>'utf-8'
@@ -826,8 +822,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248508681408419407)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499439594993072133)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/css/vita_red.css'
 ,p_mime_type=>'text/css'
 ,p_file_charset=>'utf-8'
@@ -862,8 +858,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248509013868419409)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499439927453072135)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/css/vita_slate.css'
 ,p_mime_type=>'text/css'
 ,p_file_charset=>'utf-8'
@@ -892,8 +888,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248509900284419414)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499440813869072140)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/js/apexdatedropper.min.js'
 ,p_mime_type=>'application/x-javascript'
 ,p_file_charset=>'utf-8'
@@ -1187,8 +1183,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248510279010419417)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499441192595072143)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/lib/Datedropper3/datedropper.css'
 ,p_mime_type=>'text/css'
 ,p_file_charset=>'utf-8'
@@ -1627,8 +1623,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248510680645419420)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499441594230072146)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/lib/Datedropper3/datedropper.js'
 ,p_mime_type=>'application/x-javascript'
 ,p_file_charset=>'utf-8'
@@ -1883,8 +1879,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248511018545419423)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499441932130072149)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/lib/Datedropper3/datedropper.min.css'
 ,p_mime_type=>'text/css'
 ,p_file_charset=>'utf-8'
@@ -2118,8 +2114,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248511460485419427)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499442374070072153)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/lib/Datedropper3/datedropper.min.js'
 ,p_mime_type=>'application/x-javascript'
 ,p_file_charset=>'utf-8'
@@ -2157,8 +2153,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248511895615419430)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499442809200072156)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/lib/Datedropper3/src/datedropper.eot'
 ,p_mime_type=>'application/octet-stream'
 ,p_file_charset=>'utf-8'
@@ -2196,8 +2192,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248512278883419434)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499443192468072160)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/lib/Datedropper3/src/datedropper.svg'
 ,p_mime_type=>'image/svg+xml'
 ,p_file_charset=>'utf-8'
@@ -2233,8 +2229,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248512693605419439)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499443607190072165)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/lib/Datedropper3/src/datedropper.ttf'
 ,p_mime_type=>'application/octet-stream'
 ,p_file_charset=>'utf-8'
@@ -2265,8 +2261,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38248513034760419443)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76499443948345072169)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/lib/Datedropper3/src/datedropper.woff'
 ,p_mime_type=>'application/octet-stream'
 ,p_file_charset=>'utf-8'
@@ -2305,8 +2301,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(38249808128991337098)
-,p_plugin_id=>wwv_flow_api.id(69489355922649327839)
+ p_id=>wwv_flow_api.id(76500739042575989824)
+,p_plugin_id=>wwv_flow_api.id(107740286836233980565)
 ,p_file_name=>'server/js/apexdatedropper.js'
 ,p_mime_type=>'text/javascript'
 ,p_file_charset=>'utf-8'
