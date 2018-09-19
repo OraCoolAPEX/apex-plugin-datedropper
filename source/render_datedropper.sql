@@ -112,7 +112,7 @@ begin
 
     p_result.is_navigable := false;
   else
-    l_html := '<input type="text" id="' || p_item.name || '" name="' || p_item.name || '" ';
+    l_html := '<input type="text" id="' || p_item.name || '" name="' || p_item.name || '" class="apex-item-text" ';
     
     if l_default_date   is not null then l_html := l_html || 'data-default-date="'   || l_default_date   || '" '; end if;
     if l_disabled_days  is not null then l_html := l_html || 'data-disabled-days="'  || l_disabled_days  || '" '; end if;
